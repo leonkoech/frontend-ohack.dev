@@ -34,23 +34,6 @@ export default function useNewsLetterAPI() {
   }, []);
 
 
-  async function get_subscriber_list(){
-    const config = {
-      url: `${apiServerUrl}/api/newsletter/`,
-      method: "GET",
-      headers: {
-        "content-type": "application/json"
-      }
-    };
-
-    const data = await fetchUser({ config, authenticated: true });
-
-    if (data) {
-     return data.active;
-    } else {
-      return []
-    }
-  };
 
   async function submit_email(subject, message,addresses, role) {
     const email_data = {
@@ -100,7 +83,6 @@ export default function useNewsLetterAPI() {
     subscribers,
     submit_email,
     preview_newsletter, 
-    get_subscriber_list
   };
 }
 
