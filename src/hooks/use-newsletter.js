@@ -52,6 +52,16 @@ export default function useNewsLetterAPI() {
     }
   };
 
+
+  /*  body: # this is  new event comming up, would you intersted in Particapating?
+    subject:  New Events coming up this mouth
+    addresses: anishlukkireddy@gmail.com,
+     role:  no role
+
+  */
+
+
+
   async function submit_email(subject, message,addresses, role) {
     const email_data = {
       body: message,
