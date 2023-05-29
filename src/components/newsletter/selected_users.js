@@ -1,3 +1,5 @@
+import TextareaAutosize from '@mui/base/TextareaAutosize';
+
 export default function SubscriberList (props){
     const value = []
     
@@ -14,12 +16,14 @@ export default function SubscriberList (props){
                 
 
     return(
-       props.is_editable? <textarea
+    
+      props.is_editable? <TextareaAutosize
        id="textarea"
        name="textarea"
        className="text_area text_area_subs full_width"
-       rows="3"
+       minRows={3}
        cols="50"
+       aria-label="email list text area"
        placeholder={
         value == []?"Email list is empty": value
        }
@@ -46,19 +50,21 @@ export default function SubscriberList (props){
         }
        }
 
-     ></textarea>
+     />
      :
-     <textarea
+     <TextareaAutosize 
       id="textarea"
       name="textarea"
       className="text_area text_area_subs full_width"
-      rows="3"
+      minRows={3}
       cols="50"
+      aria-label="email list text area"
+      placeholder = "Email list is empty"
+      defaultValue= {value}
       readOnly
-      value= {value}
-      placeholder={
-       "Email list is empty"
-       }
-    ></textarea>
+      // style={{ width: 200 }}
+      
+       /> 
+  
     )
 }
